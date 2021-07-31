@@ -1,0 +1,27 @@
+<h1>Detail Page</h1>
+
+
+<mat-card>
+        <p>This content is server rendered with Angular Universal, NestJS, and Google Cloud Run.</p>  
+
+        Paste URL: <pre>https://firestarter.fireship.io/customers/{{blacklistId}}</pre>
+
+        <a href="https://cards-dev.twitter.com/validator" target="blank" mat-stroked-button color="accent">Twitter Card Validator</a>
+
+        <button mat-raised-button routerLink="/blacklist">BACK</button>
+</mat-card>
+
+    
+
+<mat-card *ngIf="blacklist | async as person">
+  <mat-card-header>
+    <mat-card-title>{{ person.name }}</mat-card-title>
+    <mat-card-subtitle>Customer Details</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="person.image" />
+  <mat-card-content>
+    <p>
+      {{ person.bio }}
+    </p>
+  </mat-card-content>
+</mat-card>
